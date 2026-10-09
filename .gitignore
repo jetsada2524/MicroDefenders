@@ -1,0 +1,11 @@
+# Godot cache & build output
+.godot/
+build/
+export_credentials.cfg
+
+# Local backups / OS files
+*.bak
+.DS_Store
+
+# Design material (not used by the game; kept local)
+storyboard/

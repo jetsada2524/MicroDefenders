@@ -1,0 +1,792 @@
+[gd_scene format=3 uid="uid://chud0001"]
+
+[ext_resource type="Script" uid="uid://bkm5gilda0os2" path="res://scripts/hud.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ceb062yrq2yhg" path="res://assets/textures/welcome_screen.jpeg" id="2"]
+[ext_resource type="Texture2D" uid="uid://cxshqj71pb0gc" path="res://assets/textures/btn_start_play.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bprxvn6g7g6a2" path="res://assets/textures/gameplay_point_player1.png" id="3_cf6ij"]
+[ext_resource type="Texture2D" uid="uid://b0dopn8lqln8" path="res://assets/textures/bg_game_play.jpeg" id="4"]
+[ext_resource type="Texture2D" uid="uid://stjn2u2h3cwr" path="res://assets/textures/gameplay_point_player2.png" id="4_cf6ij"]
+[ext_resource type="Texture2D" uid="uid://drpwcys4rgfwi" path="res://assets/textures/bg_gameplay_full.jpeg" id="5"]
+[ext_resource type="Texture2D" uid="uid://dtmk5g2bjh074" path="res://assets/textures/gameplay_timer.png" id="5_cf6ij"]
+[ext_resource type="Texture2D" uid="uid://cwolekvaacbfg" path="res://assets/textures/gameplay_current_cure_player1.png" id="6_cf6ij"]
+[ext_resource type="Texture2D" uid="uid://cs08q8ni4rf8y" path="res://assets/textures/gameplay_current_cure_player2.png" id="7_cf6ij"]
+[ext_resource type="Texture2D" uid="uid://c27srf6rm6vnw" path="res://assets/textures/summary_result.png" id="8_result"]
+
+[sub_resource type="StyleBoxEmpty" id="transparent_panel"]
+
+[sub_resource type="StyleBoxFlat" id="knowledge_box_style"]
+bg_color = Color(0.1, 0.1, 0.12, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.85, 0.4, 0.9)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.1, 0.8, 0.3, 0.25)
+shadow_size = 8
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="how_to_play_box"]
+bg_color = Color(0.12, 0.12, 0.16, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.85, 0.4, 0.9)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.1, 0.8, 0.3, 0.3)
+shadow_size = 12
+shadow_offset = Vector2(0, 2)
+
+[node name="HUD" type="CanvasLayer" unique_id=2143169601]
+layer = 10
+script = ExtResource("1")
+
+[node name="GameplayBg" type="TextureRect" parent="." unique_id=806719088]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="P1Panel" type="Panel" parent="." unique_id=1637296278]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 400.0
+offset_bottom = 130.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("transparent_panel")
+
+[node name="PanelBg" type="TextureRect" parent="P1Panel" unique_id=1070224266]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_cf6ij")
+stretch_mode = 3
+
+[node name="P1Name" type="Label" parent="P1Panel" unique_id=359755442]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 290.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 32
+text = "PLAYER 1"
+
+[node name="P1Score" type="Label" parent="P1Panel" unique_id=1313603501]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 240.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+
+[node name="P1Combo" type="Label" parent="P1Panel" unique_id=1065609032]
+visible = false
+layout_mode = 0
+offset_left = 49.0
+offset_top = 137.0
+offset_right = 329.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="P2Panel" type="Panel" parent="." unique_id=1573384517]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("transparent_panel")
+
+[node name="PanelBg" type="TextureRect" parent="P2Panel" unique_id=318397251]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_cf6ij")
+stretch_mode = 3
+
+[node name="P2Name" type="Label" parent="P2Panel" unique_id=1186098591]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 290.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 32
+text = "PLAYER 2"
+horizontal_alignment = 2
+
+[node name="P2Score" type="Label" parent="P2Panel" unique_id=278908582]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 40.0
+offset_right = 328.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+
+[node name="P2Combo" type="Label" parent="P2Panel" unique_id=1330618633]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 134.0
+offset_right = 349.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 2
+
+[node name="TimerPanel" type="Panel" parent="." unique_id=423116761]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 85.0
+theme_override_styles/panel = SubResource("transparent_panel")
+
+[node name="PanelBg" type="TextureRect" parent="TimerPanel" unique_id=1049404977]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_cf6ij")
+stretch_mode = 3
+
+[node name="TimerLabel" type="Label" parent="TimerPanel" unique_id=2079183328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = -15.0
+offset_right = -69.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "00:30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1MedicinePanel" type="Panel" parent="." unique_id=992384351]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -240.0
+offset_right = 210.0
+offset_bottom = -10.0
+theme_override_styles/panel = SubResource("transparent_panel")
+
+[node name="PanelBg" type="TextureRect" parent="P1MedicinePanel" unique_id=385305157]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_cf6ij")
+stretch_mode = 3
+
+[node name="MedicineIcon" type="TextureRect" parent="P1MedicinePanel" unique_id=78974300]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 36.0
+offset_right = 190.0
+offset_bottom = 181.0
+scale = Vector2(0.72000074, 0.67999876)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="P2MedicinePanel" type="Panel" parent="." unique_id=1660520582]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -240.0
+offset_right = -10.0
+offset_bottom = -10.0
+theme_override_styles/panel = SubResource("transparent_panel")
+
+[node name="PanelBg" type="TextureRect" parent="P2MedicinePanel" unique_id=1278395370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_cf6ij")
+stretch_mode = 3
+
+[node name="MedicineIcon" type="TextureRect" parent="P2MedicinePanel" unique_id=923671392]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 33.0
+offset_right = 206.0
+offset_bottom = 178.0
+scale = Vector2(0.7600025, 0.7200012)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MedicineStockPanel" type="Panel" parent="." unique_id=760962577]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -310.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("transparent_panel")
+
+[node name="StockContainer" type="Control" parent="MedicineStockPanel" unique_id=730776302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P1KnowledgePanel" type="Panel" parent="." unique_id=100195764]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -458.0
+offset_right = 340.0
+offset_bottom = -298.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("knowledge_box_style")
+
+[node name="TitleLabel" type="Label" parent="P1KnowledgePanel" unique_id=763004116]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = -10.0
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.4, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "P1 CURE"
+horizontal_alignment = 1
+
+[node name="KnowledgeText" type="Label" parent="P1KnowledgePanel" unique_id=254707715]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 32.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="P2KnowledgePanel" type="Panel" parent="." unique_id=100195765]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -345.0
+offset_top = -456.0
+offset_right = -15.0
+offset_bottom = -296.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("knowledge_box_style")
+
+[node name="TitleLabel" type="Label" parent="P2KnowledgePanel" unique_id=965954647]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = -10.0
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.5, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "P2 CURE"
+horizontal_alignment = 1
+
+[node name="KnowledgeText" type="Label" parent="P2KnowledgePanel" unique_id=197632571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 32.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AttractPanel" type="Control" parent="." unique_id=2107010224]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BgImage" type="TextureRect" parent="AttractPanel" unique_id=903067491]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="StartButton" type="TextureButton" parent="AttractPanel" unique_id=417655796]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = 218.0
+offset_right = 225.0
+offset_bottom = 386.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HowToPlayPanel" type="Control" parent="." unique_id=112702450]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="BgImage" type="TextureRect" parent="HowToPlayPanel" unique_id=1478652806]
+modulate = Color(1, 1, 1, 0.4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DarkOverlay" type="ColorRect" parent="HowToPlayPanel" unique_id=1791168727]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="ContentBox" type="Panel" parent="HowToPlayPanel" unique_id=594929552]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -385.0
+offset_right = 500.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("how_to_play_box")
+
+[node name="Title" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=973883826]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 15.0
+offset_right = 350.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 52
+text = "วิธีการเล่น"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction1Icon" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=331257040]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 90.0
+offset_right = 100.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 42
+text = "🎯"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction1" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=2005930695]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 90.0
+offset_right = 960.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "ใช้จอยปืนเล็งและยิงเชื้อโรคที่บุกเข้ามา!"
+vertical_alignment = 1
+
+[node name="Instruction2Icon" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=1647827538]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 150.0
+offset_right = 100.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 42
+text = "💊"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction2" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=1798073519]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 150.0
+offset_right = 960.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "ยิงเพื่อเลือกยา ใช้ยาตรงกับชนิดของเชื้อโรค เพื่อทำลายเชื้อโรค!"
+vertical_alignment = 1
+
+[node name="Instruction3Icon" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=280980617]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 210.0
+offset_right = 100.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 42
+text = "🏆"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction3" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=1388971736]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 210.0
+offset_right = 960.0
+offset_bottom = 265.0
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "ผู้เล่นที่ได้คะแนนมากกว่าชนะ!"
+vertical_alignment = 1
+
+[node name="Instruction4Icon" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=1198952823]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 270.0
+offset_right = 100.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 42
+text = "⏱️"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instruction4" type="Label" parent="HowToPlayPanel/ContentBox" unique_id=466030215]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 270.0
+offset_right = 960.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "มีเวลา 30 วินาที ยิงให้เร็วที่สุด!"
+vertical_alignment = 1
+
+[node name="PlayButton" type="TextureButton" parent="HowToPlayPanel" unique_id=1187734298]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = 245.0
+offset_right = 225.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ResultsOverlay" type="ColorRect" parent="." unique_id=173408888]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="ResultsPopup" type="TextureRect" parent="ResultsOverlay" unique_id=1120027005]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -342.0
+offset_right = 580.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_result")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ResultTitle" type="Label" parent="ResultsOverlay/ResultsPopup" unique_id=670417562]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 10.0
+offset_right = 780.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0.972549, 0.93333334, 0.13333334, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 60
+text = "จบเกม!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VsLabel" type="Label" parent="ResultsOverlay/ResultsPopup" unique_id=1250816576]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 156.0
+offset_right = 625.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0.972549, 0.93333334, 0.13333334, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 60
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1ResultArea" type="Control" parent="ResultsOverlay/ResultsPopup" unique_id=360951171]
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 75.0
+offset_right = 510.0
+offset_bottom = 510.0
+
+[node name="P1NameResult" type="Label" parent="ResultsOverlay/ResultsPopup/P1ResultArea" unique_id=1850340772]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 53.0
+offset_right = 396.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.9626377, 0.98736066, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 45
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1Crown" type="Label" parent="ResultsOverlay/ResultsPopup/P1ResultArea" unique_id=608363807]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 130.0
+offset_right = 262.0
+offset_bottom = 201.09375
+theme_override_font_sizes/font_size = 50
+text = "👑"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1Stars" type="Label" parent="ResultsOverlay/ResultsPopup/P1ResultArea" unique_id=934492474]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 208.0
+offset_right = 312.0
+offset_bottom = 259.16217
+theme_override_font_sizes/font_size = 36
+text = "⭐⭐⭐"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1ScoreResult" type="Label" parent="ResultsOverlay/ResultsPopup/P1ResultArea" unique_id=885263808]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 218.0
+offset_right = 378.0
+offset_bottom = 448.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2ResultArea" type="Control" parent="ResultsOverlay/ResultsPopup" unique_id=585570350]
+anchors_preset = 0
+offset_left = 650.0
+offset_top = 75.0
+offset_right = 1110.0
+offset_bottom = 510.0
+
+[node name="P2NameResult" type="Label" parent="ResultsOverlay/ResultsPopup/P2ResultArea" unique_id=1969503606]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 53.0
+offset_right = 490.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.9999998, 0.9653862, 0.9565603, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 45
+text = "PLAYER 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2Crown" type="Label" parent="ResultsOverlay/ResultsPopup/P2ResultArea" unique_id=1402798422]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 126.0
+offset_right = 360.0
+offset_bottom = 197.09375
+theme_override_font_sizes/font_size = 50
+text = "👑"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2Stars" type="Label" parent="ResultsOverlay/ResultsPopup/P2ResultArea" unique_id=1423373168]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 202.0
+offset_right = 410.0
+offset_bottom = 253.16217
+theme_override_font_sizes/font_size = 36
+text = "⭐⭐⭐"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2ScoreResult" type="Label" parent="ResultsOverlay/ResultsPopup/P2ResultArea" unique_id=53454652]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 216.0
+offset_right = 476.0
+offset_bottom = 446.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="ResultsOverlay/ResultsPopup" unique_id=452435756]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 331.0
+offset_right = 960.0
+offset_bottom = 391.0
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="ResultsOverlay/ResultsPopup" unique_id=1244673771]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 580.0
+offset_right = 790.0
+offset_bottom = 658.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("transparent_panel")
+theme_override_styles/pressed = SubResource("transparent_panel")
+theme_override_styles/hover = SubResource("transparent_panel")
+theme_override_styles/focus = SubResource("transparent_panel")
+text = "เริ่มเกมใหม่"
+
+[node name="CountdownLabel" type="Label" parent="." unique_id=1363027798]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 160
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
